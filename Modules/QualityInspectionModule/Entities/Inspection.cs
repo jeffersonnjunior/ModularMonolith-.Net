@@ -5,7 +5,7 @@ namespace Modules.QualityInspectionModule.Entities;
 
 public class Inspection
 {
-    public int Id { get; set; }
+    public Guid Id { get; set; }
     public Guid ProductionStageId { get; set; }
     public DateTime InspectionDate { get; set; }
     public InspectionResult InspectionResult { get; set; }
