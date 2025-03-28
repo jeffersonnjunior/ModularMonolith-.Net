@@ -1,15 +1,15 @@
-using Common.Data;
+using Common.IPersistence;
 using Modules.LogisticsDistributionModule.Dtos;
 using Modules.LogisticsDistributionModule.Entities;
 using Modules.LogisticsDistributionModule.Interfaces;
 
 namespace Modules.LogisticsDistributionModule.Command;
 
-public class CreateDistributorCommandHandler : ICreateDistributorCommandHandler
+public class CreateDistributorCommand : ICreateDistributorCommand
 {
     private readonly IBaseRepository _baseRepository;
 
-    public CreateDistributorCommandHandler(IBaseRepository baseRepository)
+    public CreateDistributorCommand(IBaseRepository baseRepository)
     {
         _baseRepository = baseRepository;
     }

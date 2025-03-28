@@ -1,4 +1,4 @@
-using Common.Data;
+using Common.IPersistence;
 using Infrastructure.Persistence.Repository;
 using Microsoft.Extensions.DependencyInjection;
 

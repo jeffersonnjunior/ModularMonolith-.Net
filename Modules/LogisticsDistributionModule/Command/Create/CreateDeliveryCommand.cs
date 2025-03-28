@@ -1,16 +1,15 @@
-using Common.Data;
 using Modules.LogisticsDistributionModule.Dtos;
 using Modules.LogisticsDistributionModule.Entities;
-using System.Threading.Tasks;
+using Common.IPersistence;
 using Modules.LogisticsDistributionModule.Interfaces;
 
 namespace Modules.LogisticsDistributionModule.Command;
 
-public class CreateDeliveryCommandHandler : ICreateDeliveryCommandHandler
+public class CreateDeliveryCommand : ICreateDeliveryCommand
 {
     private readonly IBaseRepository _baseRepository;
 
-    public CreateDeliveryCommandHandler(IBaseRepository baseRepository)
+    public CreateDeliveryCommand(IBaseRepository baseRepository)
     {
         _baseRepository = baseRepository;
     }

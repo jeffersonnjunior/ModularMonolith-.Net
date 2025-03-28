@@ -1,6 +1,7 @@
+using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Common.Data;
+namespace Common.IPersistence;
 
 public interface IBaseRepository
 {
@@ -10,4 +11,7 @@ public interface IBaseRepository
     void Update<T>(T entity) where T : class;
     void Remove<T>(T entity) where T : class;
     void SaveChanges();
+    IQueryable<T> QueryWithIncludes<T>(params Expression<Func<T, object>>[] includes) where T : class;
+    Task<T?> FindAsync<T>(Guid id) where T : class;
+    Task SaveChangesAsync();
 }

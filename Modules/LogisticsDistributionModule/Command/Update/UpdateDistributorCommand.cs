@@ -1,6 +1,6 @@
 namespace Modules.LogisticsDistributionModule.Command.Update;
 
-public class UpdateDistributorCommandHandler
+public class UpdateDistributorCommand
 {
     
 }

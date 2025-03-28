@@ -2,7 +2,7 @@ using Modules.LogisticsDistributionModule.Dtos;
 
 namespace Modules.LogisticsDistributionModule.Interfaces;
 
-public interface ICreateDistributorCommandHandler
+public interface ICreateDistributorCommand
 {
     DistributorCreateDto Add(DistributorCreateDto dto);
 }

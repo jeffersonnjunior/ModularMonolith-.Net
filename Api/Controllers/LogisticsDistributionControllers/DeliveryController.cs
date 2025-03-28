@@ -9,17 +9,17 @@ namespace Api.Controllers;
 [Route("api/[controller]")]
 public class DeliveryController : ControllerBase
 {
-    private readonly ICreateDeliveryCommandHandler _createDeliveryCommandHandler;
+    private readonly ICreateDeliveryCommand _createDeliveryCommand;
 
-    public DeliveryController(ICreateDeliveryCommandHandler createDeliveryCommandHandler)
+    public DeliveryController(ICreateDeliveryCommand createDeliveryCommand)
     {
-        _createDeliveryCommandHandler = createDeliveryCommandHandler;
+        _createDeliveryCommand = createDeliveryCommand;
     }
 
     [HttpPost]
     public IActionResult CreateDelivery([FromBody] DeliveryCreateDto command)
     {
-        var result = _createDeliveryCommandHandler.Add(command);
+        var result = _createDeliveryCommand.Add(command);
         return Ok(result);
     }
 }

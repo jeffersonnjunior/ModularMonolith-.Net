@@ -8,7 +8,7 @@ public static class AddLogisticsDistributionDependencyInjection
 {
     public static void LogisticsDistributionDependencyInjection(this IServiceCollection services)
     {
-        services.AddScoped<ICreateDeliveryCommandHandler, CreateDeliveryCommandHandler>();
-        services.AddScoped<ICreateDistributorCommandHandler, CreateDistributorCommandHandler>();
+        services.CommandDependencyInjection();
+        services.QueryDependencyInjection();
     }
 }

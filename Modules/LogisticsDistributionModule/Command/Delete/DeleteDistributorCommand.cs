@@ -1,6 +1,6 @@
 namespace Modules.LogisticsDistributionModule.Command.Delete;
 
-public class DeleteDistributorCommandHandler
+public class DeleteDistributorCommand
 {
     
 }
