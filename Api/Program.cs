@@ -1,3 +1,4 @@
+using Api.Filters;
 using Infrastructure.DependencyInjection;
 using Modules.LogisticsDistributionModule.DependencyInjection;
 
@@ -6,9 +7,10 @@ IConfiguration configuration = builder.Configuration;
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.DependencyInjectionInfrastructure(configuration);
 builder.Services.AddSwaggerGen();
-builder.Services.LogisticsDistributionDependencyInjection();
+builder.Services.AddNotificationActionFilter();
+builder.Services.DependencyInjectionInfrastructure(configuration);
+builder.Services.DependencyInjectionLogisticsDistribution();
 
 var app = builder.Build();
 
