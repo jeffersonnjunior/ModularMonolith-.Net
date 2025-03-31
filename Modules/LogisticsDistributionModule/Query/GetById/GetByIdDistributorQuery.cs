@@ -4,16 +4,19 @@ using Modules.LogisticsDistributionModule.Dtos;
 using Modules.LogisticsDistributionModule.Entities;
 using Modules.LogisticsDistributionModule.Interfaces.IQuery;
 using System.Threading.Tasks;
+using Common.IException;
 
 namespace Modules.LogisticsDistributionModule.Queries.Implementations;
 
 public class GetByIdDistributorQuery : IGetByIdDistributorQuery
 {
     private readonly IBaseRepository _repository;
+    private readonly INotificationContext _notificationContext;
 
-    public GetByIdDistributorQuery(IBaseRepository repository)
+    public GetByIdDistributorQuery(IBaseRepository repository, INotificationContext notificationContext)
     {
         _repository = repository;
+        _notificationContext = notificationContext;
     }
 
     public async Task<DistributorReadDto> GetByIdAsync(DistributorGetByIdDto query)
@@ -22,8 +25,11 @@ public class GetByIdDistributorQuery : IGetByIdDistributorQuery
             .Where(d => d.Id == query.Id)
             .FirstOrDefaultAsync();
 
-        if (distributor == null)
+        if (distributor is null)
+        {
+            _notificationContext.AddNotification("Distribuição não existe.");
             return null;
+        }
 
         return new DistributorReadDto
         {

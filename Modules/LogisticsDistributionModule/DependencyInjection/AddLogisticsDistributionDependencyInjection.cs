@@ -6,7 +6,7 @@ namespace Modules.LogisticsDistributionModule.DependencyInjection;
 
 public static class AddLogisticsDistributionDependencyInjection
 {
-    public static void LogisticsDistributionDependencyInjection(this IServiceCollection services)
+    public static void DependencyInjectionLogisticsDistribution(this IServiceCollection services)
     {
         services.CommandDependencyInjection();
         services.QueryDependencyInjection();
