@@ -10,5 +10,6 @@ public static class AddLogisticsDistributionDependencyInjection
     {
         services.CommandDependencyInjection();
         services.QueryDependencyInjection();
+        services.AutoMapperDependencyInjection();
     }
 }
