@@ -1,6 +1,7 @@
 using Api.Filters;
 using Infrastructure.DependencyInjection;
 using Modules.LogisticsDistributionModule.DependencyInjection;
+using Modules.QualityInspectionModule.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = builder.Configuration;
@@ -11,6 +12,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddNotificationActionFilter();
 builder.Services.DependencyInjectionInfrastructure(configuration);
 builder.Services.DependencyInjectionLogisticsDistribution();
+builder.Services.DependencyInjectionQualityInspection();
 
 var app = builder.Build();
 

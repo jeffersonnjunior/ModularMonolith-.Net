@@ -4,7 +4,7 @@ namespace Modules.ProductionInventoryModule.Entities;
 
 public class ProductionStage
 {
-    public Guid StageId { get; set; }
+    public Guid Id { get; set; }
     public required string Name { get; set; }
     public required string Description { get; set; }
     public Guid ProductionOrderId { get; set; }

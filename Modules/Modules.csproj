@@ -16,4 +16,12 @@
       <ProjectReference Include="..\Common\Common.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="ProductionInventoryModule\Command\" />
+      <Folder Include="ProductionInventoryModule\DependencyInjection\" />
+      <Folder Include="ProductionInventoryModule\Interfaces\" />
+      <Folder Include="ProductionInventoryModule\Query\" />
+      <Folder Include="QualityInspectionModule\Factory\" />
+    </ItemGroup>
+
 </Project>

@@ -8,7 +8,7 @@ public class ProductionStageMap : IEntityTypeConfiguration<ProductionStage>
 {
     public void Configure(EntityTypeBuilder<ProductionStage> builder)
     {
-        builder.HasKey(ps => ps.StageId);
+        builder.HasKey(ps => ps.Id);
 
         builder.Property(ps => ps.Name)
             .IsRequired()
