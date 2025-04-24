@@ -90,8 +90,7 @@ namespace Infrastructure.Persistence.Migrations
                         name: "FK_SaleDetails_CarSales_CarSaleId",
                         column: x => x.CarSaleId,
                         principalTable: "CarSales",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -110,8 +109,7 @@ namespace Infrastructure.Persistence.Migrations
                         name: "FK_ProductionParts_ProductionOrders_ProductionOrderId",
                         column: x => x.ProductionOrderId,
                         principalTable: "ProductionOrders",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateIndex(
