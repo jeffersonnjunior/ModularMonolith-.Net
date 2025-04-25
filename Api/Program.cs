@@ -1,4 +1,5 @@
 using Api.Middlewares;
+using Common.DependencyInjection;
 using Infrastructure.DependencyInjection;
 using Modules.Inventory.DependencyInjection;
 
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCustomCors();
+builder.Services.CommonDependencyInjection(configuration);
 builder.Services.DependencyInjectionInfrastructure(configuration);
 builder.Services.InventoryDependencyInjection(configuration);
 
