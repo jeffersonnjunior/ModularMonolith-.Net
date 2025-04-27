@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Modules.Inventory.Interfaces.IQuery;
-using Modules.Inventory.Query.PartQuery;
+using Modules.Inventory.Interfaces.IQuerys.IPartQuerys;
+using Modules.Inventory.Querys.PartQuerys;
 
 namespace Modules.Inventory.DependencyInjection;
 

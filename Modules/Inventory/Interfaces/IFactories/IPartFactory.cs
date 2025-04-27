@@ -1,4 +1,4 @@
-﻿namespace Modules.Inventory.Interfaces.IFactory;
+﻿namespace Modules.Inventory.Interfaces.IFactories;
 
 using Modules.Inventory;
 using Modules.Inventory.Dtos.PartDtos;

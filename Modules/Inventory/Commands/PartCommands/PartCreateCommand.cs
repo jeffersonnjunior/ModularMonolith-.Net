@@ -1,10 +1,10 @@
 ﻿using Common.Exceptions;
 using Common.IPersistence.IRepositories;
 using Modules.Inventory.Dtos.PartDtos;
-using Modules.Inventory.Interfaces.ICommand.ICreate;
-using Modules.Inventory.Interfaces.IFactory;
+using Modules.Inventory.Interfaces.ICommands.IPartCommands;
+using Modules.Inventory.Interfaces.IFactories;
 
-namespace Modules.Inventory.Command.PartCommand;
+namespace Modules.Inventory.Commands.PartCommands;
 
 public class PartCreateCommand : IPartCreateCommand
 {

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Modules.Inventory.Factories;
-using Modules.Inventory.Interfaces.IFactory;
+using Modules.Inventory.Interfaces.IFactories;
 
 namespace Modules.Inventory.DependencyInjection;
 

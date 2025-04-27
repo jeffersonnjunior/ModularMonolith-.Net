@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Modules.Inventory.Command.PartCommand;
-using Modules.Inventory.Interfaces.ICommand.ICreate;
-using Modules.Inventory.Interfaces.ICommand.IDelete;
-using Modules.Inventory.Interfaces.ICommand.IUpdate;
+using Modules.Inventory.Commands.PartCommands;
+using Modules.Inventory.Interfaces.ICommands.IPartCommands;
 
 namespace Modules.Inventory.DependencyInjection;
 

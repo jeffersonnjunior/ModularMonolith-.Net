@@ -1,11 +1,10 @@
 ﻿using Common.Exceptions;
 using Common.IPersistence.IRepositories;
 using Modules.Inventory.Dtos.PartDtos;
-using Modules.Inventory.Entities;
-using Modules.Inventory.Interfaces.IQuery;
-using Modules.Inventory.Interfaces.IFactory;
+using Modules.Inventory.Interfaces.IFactories;
+using Modules.Inventory.Interfaces.IQuerys.IPartQuerys;
 
-namespace Modules.Inventory.Query.PartQuery;
+namespace Modules.Inventory.Querys.PartQuerys;
 
 public class PartGetByElement : IPartGetByElement
 {

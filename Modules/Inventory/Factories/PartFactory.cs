@@ -1,6 +1,6 @@
 ﻿using Modules.Inventory;
 using Modules.Inventory.Dtos.PartDtos;
-using Modules.Inventory.Interfaces.IFactory;
+using Modules.Inventory.Interfaces.IFactories;
 
 namespace Modules.Inventory.Factories;
 

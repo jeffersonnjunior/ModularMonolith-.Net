@@ -1,11 +1,11 @@
 ﻿using Common.Exceptions;
 using Common.IPersistence.IRepositories;
 using Modules.Inventory.Dtos.PartDtos;
-using Modules.Inventory.Interfaces.ICommand.IUpdate;
-using Modules.Inventory.Interfaces.IFactory;
-using Modules.Inventory.Interfaces.IQuery;
+using Modules.Inventory.Interfaces.ICommands.IPartCommands;
+using Modules.Inventory.Interfaces.IFactories;
+using Modules.Inventory.Interfaces.IQuerys.IPartQuerys;
 
-namespace Modules.Inventory.Command.PartCommand;
+namespace Modules.Inventory.Commands.PartCommands;
 
 public class PartUpdateCommand : IPartUpdateCommand
 {
