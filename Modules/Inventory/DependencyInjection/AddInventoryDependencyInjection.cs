@@ -9,5 +9,7 @@ public static class AddInventoryDependencyInjection
     {
         services.InventoryCommandDependencyInjection();
         services.InventoryFactoryDependencyInjection();
+        services.InventoryQueryDependencyInjection();
+        services.InventoryDecoratorDependencyInjection();
     }
 }

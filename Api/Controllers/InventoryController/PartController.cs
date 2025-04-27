@@ -1,6 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Common.Exceptions;
+using Microsoft.AspNetCore.Mvc;
 using Modules.Inventory.Dtos.PartDtos;
-using Modules.Inventory.Interfaces.ICommand.ICreate;
+using Modules.Inventory.Interfaces.IDecorators;
 
 namespace Api.Controllers.InventoryController;
 
@@ -8,23 +9,39 @@ namespace Api.Controllers.InventoryController;
 [Route("api/[controller]")]
 public class PartController : ControllerBase
 {
-    private readonly IPartCreateCommand _partCreateCommand;
+    private readonly IPartDecorator _partDecorator;
+    private readonly NotificationContext _notificationContext;
 
-    public PartController(IPartCreateCommand partCreateCommand)
+    public PartController(IPartDecorator partDecorator, NotificationContext notificationContext)
     {
-        _partCreateCommand = partCreateCommand;
+        _partDecorator = partDecorator;
+        _notificationContext = notificationContext;
+    }
+
+    [HttpGet]
+    [Route("get-by-id")]
+    public IActionResult GetById([FromQuery] int id)
+    {
+        throw new NotImplementedException("This method is not implemented yet.");
     }
 
     [HttpPost]
     [Route("add")]
     public IActionResult Add([FromBody] PartCreateDto partCreateDto)
     {
-        if (partCreateDto == null)
-        {
-            return BadRequest("PartCreateDto cannot be null.");
-        }
+        _partDecorator.Create(partCreateDto);
 
-        _partCreateCommand.Add(partCreateDto);
-        return CreatedAtAction(nameof(Add), new { id = Guid.NewGuid() }, partCreateDto);
+        if (_notificationContext.HasNotifications())
+            return BadRequest(new { errors = _notificationContext.GetNotifications() });
+
+        return Ok();
+    }
+
+    [HttpPut]
+    [Route("update")]
+    public IActionResult Update([FromBody] PartUpdateDto partUpdateDto)
+    {
+        _partDecorator.Update(partUpdateDto);
+        return Ok();
     }
 }

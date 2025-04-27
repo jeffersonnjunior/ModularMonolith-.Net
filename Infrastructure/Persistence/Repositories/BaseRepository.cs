@@ -22,10 +22,12 @@ public class BaseRepository : IBaseRepository
         return _context.Set<T>().Find(id);
     }
 
-    public void Add<T>(T entity) where T : class
+    public T Add<T>(T entity) where T : class
     {
         _context.Set<T>().Add(entity);
+        return entity;
     }
+
 
     public void Update<T>(T entity) where T : class
     {

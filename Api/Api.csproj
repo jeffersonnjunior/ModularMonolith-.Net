@@ -21,8 +21,4 @@
       <ProjectReference Include="..\Modules\Modules.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Middlewares\" />
-    </ItemGroup>
-
 </Project>

@@ -1,4 +1,5 @@
-﻿using Common.IPersistence.IRepositories;
+﻿using Common.Exceptions;
+using Common.IPersistence.IRepositories;
 using Modules.Inventory.Dtos.PartDtos;
 using Modules.Inventory.Interfaces.ICommand.ICreate;
 using Modules.Inventory.Interfaces.IFactory;
@@ -9,18 +10,26 @@ public class PartCreateCommand : IPartCreateCommand
 {
     private readonly IBaseRepository _repository;
     private readonly IPartFactory _partFactory;
+    private readonly NotificationContext _notificationContext;
 
-    public PartCreateCommand(IBaseRepository repository, IPartFactory partFactory)
+    public PartCreateCommand(IBaseRepository repository, IPartFactory partFactory, NotificationContext notificationContext)
     {
         _repository = repository;
         _partFactory = partFactory;
+        _notificationContext = notificationContext;
     }
 
-    public void Add(PartCreateDto partCreateDto)
+    public PartReadDto Add(PartCreateDto partCreateDto)
     {
-        Part part = _partFactory.MapToPart(partCreateDto);
+        PartReadDto partReadDto = new PartReadDto();
 
-        _repository.Add(part);
+        Part part = _partFactory.MapToPart(partCreateDto);
+        
+        part = _repository.Add(part); 
         _repository.SaveChanges();
+
+        partReadDto = _partFactory.MapToPartReadDto(part);
+
+        return partReadDto;
     }
 }
