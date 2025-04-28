@@ -10,7 +10,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <None Remove="Dockerfile" />
       <None Remove="Dockerfile.original" />
     </ItemGroup>
 
