@@ -1,6 +1,6 @@
 ﻿using Common.Exceptions;
 using Modules.Inventory.Dtos.PartDtos;
-using Modules.Inventory.Interfaces.ICommands.IPartCommand;
+using Modules.Inventory.Interfaces.ICommands.IPartCommands;
 using Modules.Inventory.Interfaces.IDecorators;
 
 namespace Modules.Inventory.Decorators;
