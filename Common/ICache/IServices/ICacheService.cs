@@ -2,9 +2,9 @@
 
 public interface ICacheService
 {
-    Task SetAsync<T>(string key, T value, TimeSpan? expiry = null);
-    Task<T?> GetAsync<T>(string key);
-    Task RemoveAsync(string key);
-    Task<bool> ExistsAsync(string key);
-    Task FlushDatabaseAsync();
+    void Set<T>(string key, T value, TimeSpan? expiry = null);
+    T? Get<T>(string key);
+    void Remove(string key);
+    bool Exists(string key);
+    void FlushDatabase();
 }

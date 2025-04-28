@@ -13,26 +13,26 @@ public sealed class CacheService : ICacheService
         _database = redisFactory.GetDatabase();
     }
 
-    public async Task SetAsync<T>(string key, T value, TimeSpan? expiry = null)
+    public void Set<T>(string key, T value, TimeSpan? expiry = null)
     {
-        await _database.StringSetAsync(
+        _database.StringSet(
             key,
             System.Text.Json.JsonSerializer.Serialize(value),
             expiry
         );
     }
 
-    public async Task<T?> GetAsync<T>(string key)
+    public T? Get<T>(string key)
     {
-        var value = await _database.StringGetAsync(key);
+        var value = _database.StringGet(key);
         return value.HasValue ?
             System.Text.Json.JsonSerializer.Deserialize<T>(value!) :
             default;
     }
 
-    public async Task RemoveAsync(string key) => await _database.KeyDeleteAsync(key);
+    public void Remove(string key) => _database.KeyDelete(key);
 
-    public async Task<bool> ExistsAsync(string key) => await _database.KeyExistsAsync(key);
+    public bool Exists(string key) => _database.KeyExists(key);
 
-    public async Task FlushDatabaseAsync() => await _database.ExecuteAsync("FLUSHDB");
+    public void FlushDatabase() => _database.Execute("FLUSHDB");
 }

@@ -1,7 +1,9 @@
 ﻿using Common.Exceptions;
+using Common.ICache.Services;
 using Modules.Inventory.Dtos.PartDtos;
 using Modules.Inventory.Interfaces.ICommands.IPartCommands;
 using Modules.Inventory.Interfaces.IDecorators;
+using Modules.Inventory.Interfaces.IQuerys.IPartQuerys;
 
 namespace Modules.Inventory.Decorators;
 
@@ -9,15 +11,21 @@ public class PartDecorator : IPartDecorator
 {
     private readonly IPartCreateCommand _createCommand;
     private readonly IPartUpdateCommand _updateCommand;
+    private readonly IPartGetByElement _getByElement;
+    private readonly ICacheService _cacheService;
     private readonly NotificationContext _notificationContext;
 
     public PartDecorator(
         IPartCreateCommand createCommand,
         IPartUpdateCommand updateCommand,
+        IPartGetByElement getByElement,
+        ICacheService cacheService,
         NotificationContext notificationContext)
     {
         _createCommand = createCommand;
         _updateCommand = updateCommand;
+        _getByElement = getByElement;
+        _cacheService = cacheService;
         _notificationContext = notificationContext;
     }
 
