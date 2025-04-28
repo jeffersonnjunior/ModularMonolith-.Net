@@ -10,6 +10,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <None Remove="Dockerfile" />
+      <None Remove="Dockerfile.original" />
+    </ItemGroup>
+
+    <ItemGroup>
       <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.4">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
