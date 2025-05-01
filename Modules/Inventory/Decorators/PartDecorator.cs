@@ -29,25 +29,32 @@ public class PartDecorator : IPartDecorator
         _notificationContext = notificationContext;
     }
 
-    public void Create(PartCreateDto partCreateDto)
+    public PartReadDto Create(PartCreateDto partCreateDto)
     {
-        if (!ValidateCommonPartFields(partCreateDto)) return;
+        if (!ValidateCommonPartFields(partCreateDto)) return null;
 
-        _createCommand.Add(partCreateDto);
+        return _createCommand.Add(partCreateDto);
     }
+
 
     public void Update(PartUpdateDto partUpdateDto)
     {
+        var part = ValidatePartIds(partUpdateDto.Id);
+        if (part is null) return;
+
         if (!ValidateCommonPartFields(partUpdateDto)) return;
 
-        if (partUpdateDto.Id == Guid.Empty)
-        {
-            _notificationContext.AddNotification("O campo 'ID' não pode ser vazio.");
-            return;
-        }
-
         _updateCommand.Update(partUpdateDto);
+
+        _cacheService.Remove($"Part:{partUpdateDto.Id}");
     }
+
+    public PartReadDto GetById(Guid id)
+    {
+        var part = ValidatePartIds(id);
+        return part;
+    }
+
 
     private bool ValidateCommonPartFields(dynamic partDto)
     {
@@ -84,5 +91,30 @@ public class PartDecorator : IPartDecorator
         }
 
         return isValid;
+    }
+
+    private PartReadDto? ValidatePartIds(Guid id)
+    {
+        if (id == Guid.Empty)
+        {
+            _notificationContext.AddNotification("O campo 'ID' não pode ser vazio.");
+            return null;
+        }
+
+        string cacheKey = $"Part:{id}";
+
+        var cachedPart = _cacheService.Get<PartReadDto>(cacheKey);
+        if (cachedPart != null)
+        {
+            return cachedPart;
+        }
+
+        var part = _getByElement.GetById(id);
+
+        if (part is null) return null;
+
+        _cacheService.Set(cacheKey, part, TimeSpan.FromHours(1));
+
+        return part;
     }
 }

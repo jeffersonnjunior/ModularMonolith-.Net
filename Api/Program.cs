@@ -1,3 +1,4 @@
+using Api.Filters;
 using Api.Middlewares;
 using Common.DependencyInjection;
 using Infrastructure.DependencyInjection;
@@ -29,7 +30,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCustomCors();
-builder.Services.CommonDependencyInjection(configuration);
+builder.Services.AddNotificationActionFilter();
 builder.Services.DependencyInjectionInfrastructure(configuration);
 builder.Services.InventoryDependencyInjection(configuration);
 

@@ -12,30 +12,18 @@ public class PartGetByElement : IPartGetByElement
     private readonly IBaseRepository _repository;
     private readonly IPartFactory _partFactory;
     private readonly NotificationContext _notificationContext;
-    private readonly ICacheService _cacheService;
-
     public PartGetByElement(
         IBaseRepository repository,
         IPartFactory partFactory,
-        NotificationContext notificationContext,
-        ICacheService cacheService)
+        NotificationContext notificationContext)
     {
         _repository = repository;
         _partFactory = partFactory;
         _notificationContext = notificationContext;
-        _cacheService = cacheService;
     }
 
     public PartReadDto GetById(Guid id)
     {
-        string cacheKey = $"Part:{id}";
-
-        var cachedPart = _cacheService.Get<PartReadDto>(cacheKey); 
-        if (cachedPart != null)
-        {
-            return cachedPart;
-        }
-
         Part part = _repository.Find<Part>(id);
 
         if (part == null)
@@ -44,10 +32,6 @@ public class PartGetByElement : IPartGetByElement
             return null;
         }
 
-        var partDto = _partFactory.MapToPartReadDto(part);
-
-        _cacheService.Set(cacheKey, partDto, TimeSpan.FromHours(1)); 
-
-        return partDto;
+        return _partFactory.MapToPartReadDto(part);
     }
 }

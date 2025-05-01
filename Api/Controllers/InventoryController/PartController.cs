@@ -20,22 +20,31 @@ public class PartController : ControllerBase
 
     [HttpGet]
     [Route("get-by-id")]
-    public IActionResult GetById([FromQuery] int id)
+    public IActionResult GetById([FromQuery] Guid id)
     {
-        throw new NotImplementedException("This method is not implemented yet.");
+        return Ok(_partDecorator.GetById(id));
+    }
+
+    [HttpGet]
+    [Route("get-filters")]
+    public IActionResult GetFilters([FromQuery] PartGetFilterDto partGetFilterDto)
+    {
+        return Ok(_partDecorator.GetFilter(partGetFilterDto));
     }
 
     [HttpPost]
     [Route("add")]
     public IActionResult Add([FromBody] PartCreateDto partCreateDto)
     {
-        _partDecorator.Create(partCreateDto);
+        var createdPart = _partDecorator.Create(partCreateDto);
 
         if (_notificationContext.HasNotifications())
             return BadRequest(new { errors = _notificationContext.GetNotifications() });
 
-        return Ok();
+        var uri = Url.Action(nameof(GetById), new { id = createdPart.Id });
+        return Created(uri, createdPart);
     }
+
 
     [HttpPut]
     [Route("update")]
