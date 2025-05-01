@@ -12,6 +12,7 @@ public class PartDecorator : IPartDecorator
     private readonly IPartCreateCommand _createCommand;
     private readonly IPartUpdateCommand _updateCommand;
     private readonly IPartGetByElement _getByElement;
+    private readonly IPartGetFilter _getFilter;
     private readonly ICacheService _cacheService;
     private readonly NotificationContext _notificationContext;
 
@@ -19,12 +20,14 @@ public class PartDecorator : IPartDecorator
         IPartCreateCommand createCommand,
         IPartUpdateCommand updateCommand,
         IPartGetByElement getByElement,
+        IPartGetFilter getFilter,
         ICacheService cacheService,
         NotificationContext notificationContext)
     {
         _createCommand = createCommand;
         _updateCommand = updateCommand;
         _getByElement = getByElement;
+        _getFilter = getFilter;
         _cacheService = cacheService;
         _notificationContext = notificationContext;
     }
@@ -52,6 +55,20 @@ public class PartDecorator : IPartDecorator
     public PartReadDto GetById(Guid id)
     {
         var part = ValidatePartIds(id);
+        return part;
+    }
+    public PartReturnFilterDto GetFilter(PartGetFilterDto filter)
+    {
+        string cacheKey = $"PartFilter:{filter.CodeContains}:{filter.DescriptionContains}:{filter.QuantityInStockEqual}:{filter.MinimumRequiredEqual}:{filter.CreatedAtEqual}:{filter.PageSize}:{filter.PageNumber}";
+
+        var cachedResult = _cacheService.Get<PartReturnFilterDto>(cacheKey);
+        
+        if (cachedResult != null) return cachedResult;
+        
+        var part = _getFilter.GetFilter(filter);
+
+        _cacheService.Set(cacheKey, part, TimeSpan.FromHours(1));
+
         return part;
     }
 

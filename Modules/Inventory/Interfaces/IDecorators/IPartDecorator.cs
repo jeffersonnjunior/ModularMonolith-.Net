@@ -7,4 +7,5 @@ public interface IPartDecorator
     PartReadDto Create(PartCreateDto partCreateDto);
     void Update(PartUpdateDto partUpdateDto);
     PartReadDto GetById(Guid id);
+    PartReturnFilterDto GetFilter(PartGetFilterDto filter);
 }

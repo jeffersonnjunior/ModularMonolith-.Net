@@ -1,8 +1,8 @@
 using Api.Filters;
 using Api.Middlewares;
-using Common.DependencyInjection;
 using Infrastructure.DependencyInjection;
 using Modules.Inventory.DependencyInjection;
+using Common.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = builder.Configuration;
@@ -31,6 +31,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCustomCors();
 builder.Services.AddNotificationActionFilter();
+builder.Services.CommonDependencyInjection(configuration);
 builder.Services.DependencyInjectionInfrastructure(configuration);
 builder.Services.InventoryDependencyInjection(configuration);
 

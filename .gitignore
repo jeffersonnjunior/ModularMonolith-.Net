@@ -4,3 +4,11 @@
 
 /.vs
 /Api/obj
+/obj/Docker
+/Api/bin/Debug/net9.0
+*.json
+/bin/Debug
+/Common/bin/Debug/net9.0
+/Common/obj/Debug/net9.0/refint
+/Infrastructure/bin/Debug/net9.0
+/obj/Debug
