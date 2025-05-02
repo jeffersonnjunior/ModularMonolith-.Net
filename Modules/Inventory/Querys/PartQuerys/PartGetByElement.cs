@@ -17,7 +17,6 @@ public class PartGetByElement : IPartGetByElement
         )
     {
         _repository = repository;
-        _notificationContext = notificationContext;
     }
 
     public Part GetById(Guid id)

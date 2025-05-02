@@ -9,5 +9,6 @@ public static class AddInventoryDecoratorDependencyInjection
     public static void InventoryDecoratorDependencyInjection(this IServiceCollection services)
     {
         services.AddScoped<IPartDecorator, PartDecorator>();
+        services.AddScoped<IReplenishmentRequestDecorator, ReplenishmentRequestDecorator>();
     }
 }

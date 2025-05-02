@@ -9,5 +9,6 @@ public static class AddInventoryFactoryDependencyInjection
     public static void InventoryFactoryDependencyInjection(this IServiceCollection services)
     {
         services.AddScoped<IPartFactory, PartFactory>();
+        services.AddScoped<IReplenishmentRequestFactory, ReplenishmentRequestFactory>();
      }
 }
