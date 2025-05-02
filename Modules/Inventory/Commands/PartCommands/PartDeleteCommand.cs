@@ -8,12 +8,10 @@ namespace Modules.Inventory.Commands.PartCommands;
 public class PartDeleteCommand : IPartDeleteCommand
 {
     private readonly IBaseRepository _repository;
-    private readonly IPartFactory _partFactory;
 
-    public PartDeleteCommand(IBaseRepository repository, IPartFactory partFactory)
+    public PartDeleteCommand(IBaseRepository repository)
     {
         _repository = repository;
-        _partFactory = partFactory;
     }
 
     public void Delete(Part partReadDto)
