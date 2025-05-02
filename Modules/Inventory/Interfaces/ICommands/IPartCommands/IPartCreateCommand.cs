@@ -4,5 +4,5 @@ namespace Modules.Inventory.Interfaces.ICommands.IPartCommands;
 
 public interface IPartCreateCommand
 {
-    PartReadDto Add(PartCreateDto partCreateDto);
+    Part Add(Part part);
 }

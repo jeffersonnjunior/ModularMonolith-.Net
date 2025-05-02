@@ -34,7 +34,7 @@ public class BaseRepository : IBaseRepository
         _context.Set<T>().Update(entity);
     }
 
-    public void Remove<T>(T entity) where T : class
+    public void Delete<T>(T entity) where T : class
     {
         _context.Set<T>().Remove(entity);
     }

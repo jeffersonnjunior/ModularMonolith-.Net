@@ -45,12 +45,19 @@ public class PartController : ControllerBase
         return Created(uri, createdPart);
     }
 
-
     [HttpPut]
     [Route("update")]
     public IActionResult Update([FromBody] PartUpdateDto partUpdateDto)
     {
         _partDecorator.Update(partUpdateDto);
+        return Ok();
+    }
+
+    [HttpDelete]
+    [Route("delete")]
+    public IActionResult Delete([FromQuery] Guid id)
+    {
+        _partDecorator.Delete(id);
         return Ok();
     }
 }

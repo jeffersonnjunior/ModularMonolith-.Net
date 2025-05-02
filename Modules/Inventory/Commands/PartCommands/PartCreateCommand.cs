@@ -19,17 +19,11 @@ public class PartCreateCommand : IPartCreateCommand
         _notificationContext = notificationContext;
     }
 
-    public PartReadDto Add(PartCreateDto partCreateDto)
-    {
-        PartReadDto partReadDto = new PartReadDto();
-
-        Part part = _partFactory.MapToPart(partCreateDto);
-        
+    public Part Add(Part part)
+    {   
         part = _repository.Add(part); 
         _repository.SaveChanges();
 
-        partReadDto = _partFactory.MapToPartReadDto(part);
-
-        return partReadDto;
+        return part;
     }
 }

@@ -35,4 +35,15 @@ public sealed class CacheService : ICacheService
     public bool Exists(string key) => _database.KeyExists(key);
 
     public void FlushDatabase() => _database.Execute("FLUSHDB");
+
+    public void RemoveByPrefix(string prefix)
+    {
+        var server = _database.Multiplexer.GetServer(_database.Multiplexer.GetEndPoints().First());
+        var keys = server.Keys(pattern: $"{prefix}*").ToArray();
+
+        foreach (var key in keys)
+        {
+            _database.KeyDelete(key);
+        }
+    }
 }

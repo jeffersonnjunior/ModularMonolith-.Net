@@ -7,4 +7,5 @@ public interface ICacheService
     void Remove(string key);
     bool Exists(string key);
     void FlushDatabase();
+    void RemoveByPrefix(string prefix);
 }

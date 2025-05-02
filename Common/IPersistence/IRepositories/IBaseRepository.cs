@@ -6,6 +6,6 @@ public interface IBaseRepository
     T? Find<T>(Guid id) where T : class;
     T Add<T>(T entity) where T : class; 
     void Update<T>(T entity) where T : class;
-    void Remove<T>(T entity) where T : class;
+    void Delete<T>(T entity) where T : class;
     void SaveChanges();
 }

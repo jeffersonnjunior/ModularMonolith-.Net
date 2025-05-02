@@ -10,19 +10,17 @@ namespace Modules.Inventory.Querys.PartQuerys;
 public class PartGetByElement : IPartGetByElement
 {
     private readonly IBaseRepository _repository;
-    private readonly IPartFactory _partFactory;
     private readonly NotificationContext _notificationContext;
     public PartGetByElement(
         IBaseRepository repository,
-        IPartFactory partFactory,
-        NotificationContext notificationContext)
+        NotificationContext notificationContext
+        )
     {
         _repository = repository;
-        _partFactory = partFactory;
         _notificationContext = notificationContext;
     }
 
-    public PartReadDto GetById(Guid id)
+    public Part GetById(Guid id)
     {
         Part part = _repository.Find<Part>(id);
 
@@ -32,6 +30,6 @@ public class PartGetByElement : IPartGetByElement
             return null;
         }
 
-        return _partFactory.MapToPartReadDto(part);
+        return part;
     }
 }

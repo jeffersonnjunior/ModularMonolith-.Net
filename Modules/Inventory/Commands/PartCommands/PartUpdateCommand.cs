@@ -22,13 +22,9 @@ public class PartUpdateCommand : IPartUpdateCommand
         _notificationContext = notificationContext;
     }
 
-    public void Update(PartUpdateDto partUpdateDto)
+    public void Update(Part part)
     {
-        if (_partGetByElement.GetById(partUpdateDto.Id) is null) return;
-
-        Part updatedPart = _partFactory.MapToPartFromUpdateDto(partUpdateDto);
-
-        _repository.Update(updatedPart);
+        _repository.Update(part);
         _repository.SaveChanges();
     }
 }

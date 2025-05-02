@@ -4,5 +4,5 @@ namespace Modules.Inventory.Interfaces.IQuerys.IPartQuerys;
 
 public interface IPartGetByElement
 {
-    PartReadDto GetById(Guid id);
+    Part GetById(Guid id);
 }

@@ -15,7 +15,7 @@ public class NotificationActionFilter : IActionFilter
 
     public void OnActionExecuting(ActionExecutingContext context)
     {
-        if (!context.HttpContext.Request.Headers.ContainsKey("Authorization")) context.Result = new UnauthorizedObjectResult("Autorização Ausente");
+        //if (!context.HttpContext.Request.Headers.ContainsKey("Authorization")) context.Result = new UnauthorizedObjectResult("Autorização Ausente");
     }
 
     public void OnActionExecuted(ActionExecutedContext context)
