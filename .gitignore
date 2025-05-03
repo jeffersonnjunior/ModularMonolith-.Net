@@ -12,3 +12,8 @@
 /Common/obj/Debug/net9.0/refint
 /Infrastructure/bin/Debug/net9.0
 /obj/Debug
+/Common/obj/Debug/net9.0
+/Common/obj
+/Infrastructure/obj
+/Modules/bin/Debug/net9.0
+/Modules/obj
