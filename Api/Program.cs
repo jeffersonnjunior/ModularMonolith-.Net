@@ -3,6 +3,7 @@ using Api.Middlewares;
 using Infrastructure.DependencyInjection;
 using Modules.Inventory.DependencyInjection;
 using Common.DependencyInjection;
+using Modules.Production.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = builder.Configuration;
@@ -34,6 +35,7 @@ builder.Services.AddNotificationActionFilter();
 builder.Services.CommonDependencyInjection(configuration);
 builder.Services.DependencyInjectionInfrastructure(configuration);
 builder.Services.InventoryDependencyInjection(configuration);
+builder.Services.ProductionDependencyInjection(configuration);
 
 var app = builder.Build();
 

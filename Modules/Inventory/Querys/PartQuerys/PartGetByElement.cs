@@ -1,8 +1,5 @@
 ﻿using Common.Exceptions;
-using Common.ICache.Services;
 using Common.IPersistence.IRepositories;
-using Modules.Inventory.Dtos.PartDtos;
-using Modules.Inventory.Interfaces.IFactories;
 using Modules.Inventory.Interfaces.IQuerys.IPartQuerys;
 
 namespace Modules.Inventory.Querys.PartQuerys;
