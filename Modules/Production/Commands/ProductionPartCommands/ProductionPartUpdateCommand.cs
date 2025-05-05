@@ -1,5 +1,7 @@
-﻿namespace Modules.Production.Commands.ProductionPartCommands;
+﻿using Modules.Production.Interfaces.ICommands.IProductionPartCommands;
 
-public class ProductionPartUpdateCommand
+namespace Modules.Production.Commands.ProductionPartCommands;
+
+public class ProductionPartUpdateCommand : IProductionPartUpdateCommand
 {
 }

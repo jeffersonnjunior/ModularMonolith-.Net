@@ -9,5 +9,6 @@ public static class AddProductionFactoryDependencyInjection
     public static void ProductionFactoryDependencyInjection(this IServiceCollection services)
     {
         services.AddScoped<IProductionOrderFactory, ProductionOrderFactory>();
+        services.AddScoped<IProductionPartFactory, ProductionPartFactory>();
     }
 }

@@ -9,5 +9,6 @@ public static class AddProductionDecoratorDependencyInjection
     public static void ProductionDecoratorDependencyInjection(this IServiceCollection services)
     {
         services.AddScoped<IProductionOrderDecorator, ProductionOrderDecorator>();
+        services.AddScoped<IProductionPartDecorator, ProductionPartDecorator>();
     }
 }
