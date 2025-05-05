@@ -21,7 +21,7 @@ public class ProductionOrderGetByElement : IProductionOrderGetByElement
 
         if (productionOrder == null)
         {
-            _notificationContext.AddNotification("A peça com o ID especificado não foi encontrada.");
+            _notificationContext.AddNotification("A produção com o ID especificado não foi encontrada.");
             return null;
         }
 
