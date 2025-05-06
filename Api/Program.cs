@@ -1,9 +1,11 @@
 using Api.Filters;
 using Api.Middlewares;
 using Infrastructure.DependencyInjection;
-using Modules.Inventory.DependencyInjection;
 using Common.DependencyInjection;
+using Modules.Inventory.DependencyInjection;
 using Modules.Production.DependencyInjection;
+using Modules.Sales.DependencyInjection;
+;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = builder.Configuration;
@@ -36,6 +38,7 @@ builder.Services.CommonDependencyInjection(configuration);
 builder.Services.DependencyInjectionInfrastructure(configuration);
 builder.Services.InventoryDependencyInjection(configuration);
 builder.Services.ProductionDependencyInjection(configuration);
+builder.Services.SalesDependencyInjection(configuration);
 
 var app = builder.Build();
 
