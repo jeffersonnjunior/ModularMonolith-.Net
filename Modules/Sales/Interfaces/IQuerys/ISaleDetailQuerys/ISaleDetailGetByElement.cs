@@ -2,7 +2,7 @@
 
 namespace Modules.Sales.Interfaces.IQuerys.ISaleDetailQuerys;
 
-internal interface ISaleDetailGetByElement
+public interface ISaleDetailGetByElement
 {
     SaleDetail GetById(Guid id);
 }
