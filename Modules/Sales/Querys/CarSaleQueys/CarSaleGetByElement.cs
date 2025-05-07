@@ -1,7 +1,7 @@
 ﻿using Common.Exceptions;
 using Common.IPersistence.IRepositories;
 using Modules.Sales.Entities;
-using Modules.Sales.Interfaces.IQuerys;
+using Modules.Sales.Interfaces.IQuerys.ICarSaleQuerys;
 
 namespace Modules.Sales.Querys.CarSaleQueys;
 

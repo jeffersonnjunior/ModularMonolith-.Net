@@ -6,7 +6,7 @@ using Modules.Sales.Enums;
 using Modules.Sales.Interfaces.ICommands.ICarSaleCommands;
 using Modules.Sales.Interfaces.IDecorators;
 using Modules.Sales.Interfaces.IFactories;
-using Modules.Sales.Interfaces.IQuerys;
+using Modules.Sales.Interfaces.IQuerys.ICarSaleQuerys;
 
 namespace Modules.Sales.Decorators;
 

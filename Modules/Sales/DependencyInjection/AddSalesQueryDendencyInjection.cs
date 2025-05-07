@@ -1,5 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using Modules.Sales.Interfaces.IQuerys;
+using Modules.Sales.Interfaces.IQuerys.ICarSaleQuerys;
 using Modules.Sales.Querys.CarSaleQuerys;
 using Modules.Sales.Querys.CarSaleQueys;
 

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Modules.Sales.Dtos.CarSaleDtos;
 using Modules.Sales.Entities;
-using Modules.Sales.Interfaces.IQuerys;
+using Modules.Sales.Interfaces.IQuerys.ICarSaleQuerys;
 
 namespace Modules.Sales.Querys.CarSaleQuerys;
 

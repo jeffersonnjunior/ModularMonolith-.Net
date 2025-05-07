@@ -1,6 +1,6 @@
 ﻿using Modules.Sales.Entities;
 
-namespace Modules.Sales.Interfaces.IQuerys;
+namespace Modules.Sales.Interfaces.IQuerys.ICarSaleQuerys;
 
 public interface ICarSaleGetByElement
 {
