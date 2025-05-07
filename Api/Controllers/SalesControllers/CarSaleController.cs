@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Modules.Sales.Dtos.CarSaleDtos;
 using Modules.Sales.Interfaces.IDecorators;
+using Modules.Sales.Querys.CarSaleQuerys;
 
 namespace Api.Controllers.SalesControllers;
 
