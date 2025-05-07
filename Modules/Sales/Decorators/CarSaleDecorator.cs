@@ -7,6 +7,7 @@ using Modules.Sales.Interfaces.ICommands.ICarSaleCommands;
 using Modules.Sales.Interfaces.IDecorators;
 using Modules.Sales.Interfaces.IFactories;
 using Modules.Sales.Interfaces.IQuerys.ICarSaleQuerys;
+using Modules.Sales.Querys.CarSaleQuerys;
 
 namespace Modules.Sales.Decorators;
 
