@@ -15,7 +15,6 @@ public class CarSaleFactory : ICarSaleFactory
             ProductionOrderId = Guid.Empty,
             Status = SaleStatus.Pendente,
             SoldAt = null,
-            SaleDetail = null
         };
     }
 
@@ -27,7 +26,6 @@ public class CarSaleFactory : ICarSaleFactory
             ProductionOrderId = dto.ProductionOrderId,
             Status = dto.Status,
             SoldAt = dto.SoldAt,
-            SaleDetail = null
         };
     }
 
