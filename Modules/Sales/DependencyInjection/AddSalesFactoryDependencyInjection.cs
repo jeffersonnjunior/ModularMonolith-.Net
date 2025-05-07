@@ -9,5 +9,6 @@ public static class AddSalesFactoryDependencyInjection
     public static void SalesFactoryDependencyInjection(this IServiceCollection services)
     {
         services.AddScoped<ICarSaleFactory, CarSaleFactory>();
+        services.AddScoped<ISaleDetailFactory, SaleDetailFactory>();
     }
 }
