@@ -8,7 +8,7 @@ public sealed class CacheService : ICacheService
 {
     private readonly IDatabase _database;
 
-    public CacheService(RedisFactory redisFactory)
+    public CacheService(RedisConnection redisFactory)
     {
         _database = redisFactory.GetDatabase();
     }

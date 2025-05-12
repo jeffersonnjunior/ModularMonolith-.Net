@@ -2,11 +2,11 @@
 
 namespace Infrastructure.Cache.Connection;
 
-public class RedisFactory : IDisposable
+public class RedisConnection : IDisposable
 {
     private readonly IConnectionMultiplexer _connection;
 
-    public RedisFactory(string connectionString)
+    public RedisConnection(string connectionString)
     {
         _connection = ConnectionMultiplexer.Connect(connectionString);
     }

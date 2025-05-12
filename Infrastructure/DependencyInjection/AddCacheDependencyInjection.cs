@@ -13,8 +13,8 @@ public static class AddCacheDependencyInjection
         IConfiguration configuration)
     {
 
-        services.AddSingleton<RedisFactory>(_ =>
-            new RedisFactory(configuration.GetConnectionString("Redis")));
+        services.AddSingleton<RedisConnection>(_ =>
+            new RedisConnection(configuration.GetConnectionString("Redis")));
 
         services.AddScoped<ICacheService, CacheService>();
 
