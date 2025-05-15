@@ -1,7 +1,5 @@
 ﻿using Common.IPersistence.IRepositories;
-using Modules.Inventory.Dtos.PartDtos;
 using Modules.Inventory.Interfaces.ICommands.IPartCommands;
-using Modules.Inventory.Interfaces.IFactories;
 
 namespace Modules.Inventory.Commands.PartCommands;
 

@@ -4,7 +4,7 @@ using Modules.Production.Interfaces.ICommands.IProductionOrderCommands;
 
 namespace Modules.Production.Commands.ProductionOrderCommands;
 
-internal class ProductionOrderDeleteCommand : IProductionOrderDeleteCommand
+public class ProductionOrderDeleteCommand : IProductionOrderDeleteCommand
 {
     private readonly IBaseRepository _repository;
 
