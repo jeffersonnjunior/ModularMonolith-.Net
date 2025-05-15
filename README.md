@@ -8,5 +8,5 @@ Projeto para gerenciamento de fábrica de carros, com funcionalidades como contr
 ## Tecnologias
 - C#, ASP.NET Core, PostgreSQL, Redis, Entity Framework, xUnit e Docker
 
-- ## Padrões de Design
+## Padrões de Design
 - DDD, CQRS, SOLID, Decorator, Factory e Notification
