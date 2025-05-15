@@ -148,12 +148,6 @@ public class CarSaleDecorator : ICarSaleDecorator
             isValid = false;
         }
 
-        if (saleDto.SoldAt.HasValue && saleDto.SoldAt > DateTime.UtcNow)
-        {
-            _notificationContext.AddNotification("A data de venda não pode ser no futuro.");
-            isValid = false;
-        }
-
         return isValid;
     }
 }

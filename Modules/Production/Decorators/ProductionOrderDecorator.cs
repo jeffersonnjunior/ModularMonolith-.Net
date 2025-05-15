@@ -153,12 +153,6 @@ public class ProductionOrderDecorator : IProductionOrderDecorator
             isValid = false;
         }
 
-        if (orderDto.CompletedAt.HasValue && orderDto.CompletedAt < orderDto.CreatedAt)
-        {
-            _notificationContext.AddNotification("A data de conclusão não pode ser anterior à data de criação.");
-            isValid = false;
-        }
-
         return isValid;
     }
 }
