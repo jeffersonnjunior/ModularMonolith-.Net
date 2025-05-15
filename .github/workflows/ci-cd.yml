@@ -19,10 +19,10 @@ jobs:
         dotnet-version: 9.0.x
 
     - name: Restore dependencies
-      run: dotnet restore ModularMonolith-.Net
+      run: dotnet restoreModularMonolith-.Net.sln
 
     - name: Build solution
-      run: dotnet build ModularMonolith-.Net --no-restore
+      run: dotnet buildModularMonolith-.Net.sln --no-restore
 
   test:
     runs-on: ubuntu-latest
@@ -37,7 +37,7 @@ jobs:
         dotnet-version: 9.0.x
 
     - name: Restore dependencies
-      run: dotnet restore ModularMonolith-.Net
+      run: dotnet restoreModularMonolith-.Net.sln
 
     - name: Run tests
       run: dotnet test Tests/Tests.csproj --verbosity normal
