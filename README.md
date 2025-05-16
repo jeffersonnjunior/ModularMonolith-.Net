@@ -8,3 +8,6 @@ Projeto para gerenciamento de fábrica de carros, com funcionalidades como contr
 
 ## Padrões de Design
 - DDD, CQRS, SOLID, Decorator, Factory e Notification
+
+## Arquitetura
+- Monolito com DDD e CQRS, assegurando organização por contexto de domínio, clareza nas operações e manutenção facilitada.
