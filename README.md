@@ -39,3 +39,15 @@ Define a interface base para implementação de cache, padronizando a comunicaç
 
 ### IPersistence
 Define a interface para o acesso a dados, com interfaces que representam os contratos de persistência usados pelas camadas superiores.
+
+## Camada Infrastructure
+
+### DependencyInjection
+Implementa o registro concreto das dependências definidas nas interfaces da aplicação, conectando a infraestrutura ao restante do sistema.
+
+### Cache
+Contém a implementação das estratégias de cache, como uso de memória ou mecanismos externos, para otimizar o acesso a dados frequentemente utilizados.
+
+### Persistence
+Agrupa as implementações responsáveis pela persistência de dados, como repositórios e contextos de banco de dados, seguindo os contratos definidos na camada Common.
+
