@@ -53,6 +53,9 @@ Agrupa as implementações responsáveis pela persistência de dados, como repos
 
 ## Modules
 
+A aplicação é organizada em três módulos principais: **Inventory**, **Production** e **Sales**.  
+Cada módulo possui sua própria estrutura interna, garantindo separação de responsabilidades e escalabilidade.
+
 ### Commands
 Contém os comandos responsáveis por executar ações que alteram o estado da aplicação, como criação, atualização ou remoção de dados.
 
