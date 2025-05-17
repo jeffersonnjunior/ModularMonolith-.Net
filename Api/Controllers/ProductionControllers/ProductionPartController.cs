@@ -1,13 +1,14 @@
 ﻿using Common.Exceptions;
 using Microsoft.AspNetCore.Mvc;
-using Modules.Production.Dtos.ProductionOrderDtos;
 using Modules.Production.Dtos.ProductionPartDtos;
 using Modules.Production.Interfaces.IDecorators;
 
 namespace Api.Controllers.ProductionControllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
+[Produces("application/json")]
 public class ProductionPartController : ControllerBase
 {
     private readonly IProductionPartDecorator _productionPartDecorator;

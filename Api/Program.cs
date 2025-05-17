@@ -5,7 +5,7 @@ using Common.DependencyInjection;
 using Modules.Inventory.DependencyInjection;
 using Modules.Production.DependencyInjection;
 using Modules.Sales.DependencyInjection;
-;
+using Api.Versioning;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration configuration = builder.Configuration;
@@ -30,8 +30,8 @@ builder.WebHost.ConfigureKestrel(options =>
 });
 
 builder.Services.AddControllers();
+builder.Services.AddSwaggerConfiguration();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 builder.Services.AddCustomCors();
 builder.Services.AddNotificationActionFilter();
 builder.Services.CommonDependencyInjection(configuration);
@@ -39,6 +39,7 @@ builder.Services.DependencyInjectionInfrastructure(configuration);
 builder.Services.InventoryDependencyInjection(configuration);
 builder.Services.ProductionDependencyInjection(configuration);
 builder.Services.SalesDependencyInjection(configuration);
+builder.Services.AddApiVersioningConfig();
 
 var app = builder.Build();
 

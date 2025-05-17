@@ -6,7 +6,9 @@ using Modules.Production.Interfaces.IDecorators;
 namespace Api.Controllers.ProductionControllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
+[Produces("application/json")]
 public class ProductionOrderController : ControllerBase
 {
     private readonly IProductionOrderDecorator _productionOrderDecorator;

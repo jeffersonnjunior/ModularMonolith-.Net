@@ -2,12 +2,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Modules.Sales.Dtos.SaleDetailDtos;
 using Modules.Sales.Interfaces.IDecorators;
-using Modules.Sales.Querys.SaleDetailQuerys;
 
 namespace Api.Controllers.SalesControllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/[controller]")]
+[Produces("application/json")]
 public class SaleDetailController : ControllerBase
 {
     private readonly ISaleDetailDecorator _saleDetailDecorator;
