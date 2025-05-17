@@ -11,3 +11,17 @@ Projeto para gerenciamento de fábrica de veículos, com funcionalidades como co
 
 ## Arquitetura
 Monolito com DDD e CQRS, assegurando organização por contexto de domínio, clareza nas operações e manutenção facilitada.
+
+## Camada Api
+
+### Controllers
+Contém as controllers responsáveis por gerenciar as requisições e respostas da aplicação, servindo como ponto de entrada para os endpoints.
+
+### Filters
+Armazena a configuração dos filters, que gerenciam exceções e fornecem um tratamento consistente para erros no projeto.
+
+### Middlewares
+Configuração exclusiva para políticas de CORS, permitindo controlar o acesso de origens externas à API.
+
+### Versioning
+Contém a configuração de versionamento, permitindo gerenciar diferentes versões da API de forma organizada.
