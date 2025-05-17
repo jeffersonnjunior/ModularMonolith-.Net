@@ -65,4 +65,11 @@ Mapeamento entre as entidades e os DTOs, facilitando a conversão de dados para 
 ### Interfaces
 Interfaces que definem as operações e métodos utilizados na camada application, garantindo flexibilidade e desacoplamento.
 
+### Entities
+Agrupa as entidades que representam os objetos principais de negócio, com suas propriedades e comportamentos.
 
+### Enums
+Fornece listas de valores fixos usados para categorizar e organizar informações de forma consistente no sistema.
+
+### Mappings  
+Gerencia o mapeamento entre as entidades do domínio e as tabelas do banco de dados.
