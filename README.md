@@ -88,3 +88,6 @@ Contém as operações de leitura utilizadas para obter informações da aplica�
 
 ## Tests
 Contém todos os testes unitários do projeto, desenvolvidos utilizando o framework xUnit para validar as funcionalidades de forma isolada.
+
+## .github/workflows 
+Contém as configurações para os pipelines de CI/CD do projeto, automatizando processos como build, execução de testes e criação de imagens Docker.
