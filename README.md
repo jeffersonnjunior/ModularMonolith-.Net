@@ -85,3 +85,6 @@ Gerencia o mapeamento entre as entidades do domínio e as tabelas do banco de da
 
 ### Query
 Contém as operações de leitura utilizadas para obter informações da aplicação, focando em performance e retorno de dados em formatos específicos.
+
+## Tests
+Contém todos os testes unitários do projeto, desenvolvidos utilizando o framework xUnit para validar as funcionalidades de forma isolada.
