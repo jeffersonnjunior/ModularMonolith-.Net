@@ -29,7 +29,7 @@ Contém a configuração de versionamento, permitindo gerenciar diferentes vers�
 ## Camada Common
 
 ### DependencyInjection
-Contém as configurações centralizadas de injeção de dependência, facilitando o registro de serviços, repositórios e demais componentes da aplicação.
+Configuração dos serviços de injeção de dependência para garantir a resolução correta das classes na camada common.
 
 ### Exceptions
 Agrupa as classes de exceções customizadas utilizadas no sistema, permitindo um controle mais claro e específico de erros durante a execução.
@@ -43,7 +43,27 @@ Define a interface para o acesso a dados, com interfaces que representam os cont
 ## Camada Infrastructure
 
 ### DependencyInjection
-Implementa o registro concreto das dependências definidas nas interfaces da aplicação, conectando a infraestrutura ao restante do sistema.
+Configuração dos serviços de injeção de dependência para garantir a resolução correta das classes na camada infrastructure.
+
+### Cache
+Contém a implementação das estratégias de cache, como uso de memória ou mecanismos externos, para otimizar o acesso a dados frequentemente utilizados.
+
+### Persistence
+Agrupa as implementações responsáveis pela persistência de dados, como repositórios e contextos de banco de dados, seguindo os contratos definidos na camada common.
+
+## Modules
+
+### DependencyInjection
+Configuração dos serviços de injeção de dependência para garantir a resolução correta das classes na camada application.
+
+### Dtos
+Definição dos Data Transfer Objects (DTOs) para transferência de dados entre as camadas de forma estruturada e segura.
+
+### Factory
+Mapeamento entre as entidades e os DTOs, facilitando a conversão de dados para comunicação entre as camadas.
+
+### Interfaces
+Interfaces que definem as operações e métodos utilizados na camada application, garantindo flexibilidade e desacoplamento.
 
 ### Cache
 Contém a implementação das estratégias de cache, como uso de memória ou mecanismos externos, para otimizar o acesso a dados frequentemente utilizados.
