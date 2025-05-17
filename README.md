@@ -93,3 +93,4 @@ Contém todos os testes unitários do projeto, desenvolvidos utilizando o framew
 Contém as configurações para os pipelines de CI/CD do projeto, automatizando processos como build, execução de testes e criação de imagens Docker.
 ![image](https://github.com/user-attachments/assets/45ce3784-1238-4ca3-bee5-17827ba0790f)
 
+## Diagrama do Banco
