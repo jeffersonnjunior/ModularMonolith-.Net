@@ -59,17 +59,17 @@ Configuração dos serviços de injeção de dependência para garantir a resolu
 ### Dtos
 Definição dos Data Transfer Objects (DTOs) para transferência de dados entre as camadas de forma estruturada e segura.
 
-### Factory
-Mapeamento entre as entidades e os DTOs, facilitando a conversão de dados para comunicação entre as camadas.
-
-### Interfaces
-Interfaces que definem as operações e métodos utilizados na camada application, garantindo flexibilidade e desacoplamento.
-
 ### Entities
 Agrupa as entidades que representam os objetos principais de negócio, com suas propriedades e comportamentos.
 
 ### Enums
 Fornece listas de valores fixos usados para categorizar e organizar informações de forma consistente no sistema.
+
+### Factory
+Mapeamento entre as entidades e os DTOs, facilitando a conversão de dados para comunicação entre as camadas.
+
+### Interfaces
+Interfaces que definem as operações e métodos utilizados na camada application, garantindo flexibilidade e desacoplamento.
 
 ### Mappings  
 Gerencia o mapeamento entre as entidades do domínio e as tabelas do banco de dados.
