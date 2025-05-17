@@ -75,7 +75,7 @@ Fornece listas de valores fixos usados para categorizar e organizar informaçõe
 Mapeamento entre as entidades e os DTOs, facilitando a conversão de dados para comunicação entre as camadas.
 
 ### Interfaces
-Interfaces que definem as operações e métodos utilizados na camada application, garantindo flexibilidade e desacoplamento.
+Interfaces que definem as operações e métodos utilizados na camada modules, garantindo flexibilidade e desacoplamento.
 
 ### Mappings  
 Gerencia o mapeamento entre as entidades do domínio e as tabelas do banco de dados.
