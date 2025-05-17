@@ -53,6 +53,12 @@ Agrupa as implementações responsáveis pela persistência de dados, como repos
 
 ## Modules
 
+### Commands
+Contém os comandos responsáveis por executar ações que alteram o estado da aplicação, como criação, atualização ou remoção de dados.
+
+### Decorator
+Responsável por aplicar comportamentos adicionais aos comandos e queries, como validação de dados e verificação no cache antes da execução principal.
+
 ### DependencyInjection
 Configuração dos serviços de injeção de dependência para garantir a resolução correta das classes na camada modules.
 
@@ -73,3 +79,6 @@ Interfaces que definem as operações e métodos utilizados na camada applicatio
 
 ### Mappings  
 Gerencia o mapeamento entre as entidades do domínio e as tabelas do banco de dados.
+
+### Query
+Contém as operações de leitura utilizadas para obter informações da aplicação, focando em performance e retorno de dados em formatos específicos.
