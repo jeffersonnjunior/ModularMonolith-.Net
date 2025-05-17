@@ -25,3 +25,17 @@ Configuração exclusiva para políticas de CORS, permitindo controlar o acesso 
 
 ### Versioning
 Contém a configuração de versionamento, permitindo gerenciar diferentes versões da API de forma organizada.
+
+## Camada Common
+
+### DependencyInjection
+Contém as configurações centralizadas de injeção de dependência, facilitando o registro de serviços, repositórios e demais componentes da aplicação.
+
+### Exceptions
+Agrupa as classes de exceções customizadas utilizadas no sistema, permitindo um controle mais claro e específico de erros durante a execução.
+
+### ICache
+Define a interface base para implementação de cache, padronizando a comunicação com mecanismos de armazenamento em memória.
+
+### IPersistence
+Define a interface para o acesso a dados, com interfaces que representam os contratos de persistência usados pelas camadas superiores.
