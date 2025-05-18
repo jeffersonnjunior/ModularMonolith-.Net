@@ -153,4 +153,5 @@ SaleDetail {
 Part ||--o{ ReplenishmentRequest : "1-N (Part.Code → ReplenishmentRequest.PartCode)"
 Part ||--o{ ProductionPart : "1-N (Part.Code → ProductionPart.PartCode)"
 ProductionOrder ||--o{ ProductionPart : "1-N (Production
+
 ```
