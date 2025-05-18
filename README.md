@@ -94,64 +94,59 @@ Contém as configurações para os pipelines de CI/CD do projeto, automatizando 
 ![image](https://github.com/user-attachments/assets/45ce3784-1238-4ca3-bee5-17827ba0790f)
 
 ## Diagrama do Banco
-```mermaid
 erDiagram
+    Part {
+        GUID Id PK
+        string Code
+        string Description
+        int QuantityInStock
+        int MinimumRequired
+        datetime CreatedAt
+    }
 
-%% Módulo: Inventory
-Part {
-    Guid Id PK
-    string Code UK
-    string Description
-    int QuantityInStock
-    int MinimumRequired
-    DateTime CreatedAt
-}
+    ReplenishmentRequest {
+        GUID Id PK
+        string PartCode FK
+        int RequestedQuantity
+        string ReplenishmentStatus
+        datetime RequestedAt
+    }
 
-ReplenishmentRequest {
-    Guid Id PK
-    string PartCode FK
-    int RequestedQuantity
-    ReplenishmentStatus ReplenishmentStatus
-    DateTime RequestedAt
-}
+    ProductionOrder {
+        GUID Id PK
+        string Model
+        string ProductionStatus
+        datetime CreatedAt
+        datetime CompletedAt
+    }
 
-%% Módulo: Production
-ProductionOrder {
-    Guid Id PK
-    string Model
-    ProductionStatus ProductionStatus
-    DateTime CreatedAt
-    DateTime? CompletedAt
-}
+    ProductionPart {
+        GUID Id PK
+        GUID ProductionOrderId FK
+        string PartCode FK
+        int QuantityUsed
+    }
 
-ProductionPart {
-    Guid Id PK
-    Guid ProductionOrderId FK
-    string PartCode FK
-    int QuantityUsed
-}
+    CarSale {
+        GUID Id PK
+        GUID ProductionOrderId FK
+        string Status
+        datetime SoldAt
+    }
 
-%% Módulo: Sales
-CarSale {
-    Guid Id PK
-    Guid ProductionOrderId FK
-    SaleStatus Status
-    DateTime? SoldAt
-}
+    SaleDetail {
+        GUID Id PK
+        GUID CarSaleId FK
+        string BuyerName
+        decimal Price
+        decimal Discount
+        string PaymentMethod
+        string Notes
+    }
 
-SaleDetail {
-    Guid Id PK
-    Guid CarSaleId FK
-    string BuyerName
-    decimal Price
-    decimal Discount
-    string PaymentMethod
-    string Notes
-}
+    Part ||--o{ ReplenishmentRequest : has
+    Part ||--o{ ProductionPart : used_in
+    ProductionOrder ||--o{ ProductionPart : has
+    ProductionOrder ||--|| CarSale : generates
+    CarSale ||--|| SaleDetail : includes
 
-%% Relacionamentos
-Part ||--o{ ReplenishmentRequest : "1-N (Part.Code → ReplenishmentRequest.PartCode)"
-Part ||--o{ ProductionPart : "1-N (Part.Code → ProductionPart.PartCode)"
-ProductionOrder ||--o{ ProductionPart : "1-N (Production
-
-```
