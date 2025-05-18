@@ -94,6 +94,8 @@ Contém as configurações para os pipelines de CI/CD do projeto, automatizando 
 ![image](https://github.com/user-attachments/assets/45ce3784-1238-4ca3-bee5-17827ba0790f)
 
 ## Diagrama do Banco
+
+```mermaid
 erDiagram
 
 %% Módulo: Inventory
@@ -154,4 +156,3 @@ Part ||--o{ ProductionPart : "1-N (Part.Code → ProductionPart.PartCode)"
 ProductionOrder ||--o{ ProductionPart : "1-N (ProductionOrder.Id → ProductionPart.ProductionOrderId)"
 ProductionOrder ||--|| CarSale : "1-1 (ProductionOrder.Id → CarSale.ProductionOrderId)"
 CarSale ||--|| SaleDetail : "1-1 (CarSale.Id → SaleDetail.CarSaleId)"
-
