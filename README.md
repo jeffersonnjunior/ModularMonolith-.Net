@@ -95,58 +95,63 @@ Contém as configurações para os pipelines de CI/CD do projeto, automatizando 
 
 ## Diagrama do Banco
 erDiagram
-    Part {
-        GUID Id PK
-        string Code
-        string Description
-        int QuantityInStock
-        int MinimumRequired
-        datetime CreatedAt
-    }
 
-    ReplenishmentRequest {
-        GUID Id PK
-        string PartCode FK
-        int RequestedQuantity
-        string ReplenishmentStatus
-        datetime RequestedAt
-    }
+%% Módulo: Inventory
+Part {
+    Guid Id PK
+    string Code UK
+    string Description
+    int QuantityInStock
+    int MinimumRequired
+    DateTime CreatedAt
+}
 
-    ProductionOrder {
-        GUID Id PK
-        string Model
-        string ProductionStatus
-        datetime CreatedAt
-        datetime CompletedAt
-    }
+ReplenishmentRequest {
+    Guid Id PK
+    string PartCode FK
+    int RequestedQuantity
+    string ReplenishmentStatus
+    DateTime RequestedAt
+}
 
-    ProductionPart {
-        GUID Id PK
-        GUID ProductionOrderId FK
-        string PartCode FK
-        int QuantityUsed
-    }
+%% Módulo: Production
+ProductionOrder {
+    Guid Id PK
+    string Model
+    string ProductionStatus
+    DateTime CreatedAt
+    DateTime CompletedAt "Nullable"
+}
 
-    CarSale {
-        GUID Id PK
-        GUID ProductionOrderId FK
-        string Status
-        datetime SoldAt
-    }
+ProductionPart {
+    Guid Id PK
+    Guid ProductionOrderId FK
+    string PartCode FK
+    int QuantityUsed
+}
 
-    SaleDetail {
-        GUID Id PK
-        GUID CarSaleId FK
-        string BuyerName
-        decimal Price
-        decimal Discount
-        string PaymentMethod
-        string Notes
-    }
+%% Módulo: Sales
+CarSale {
+    Guid Id PK
+    Guid ProductionOrderId FK
+    string Status
+    DateTime SoldAt "Nullable"
+}
 
-    Part ||--o{ ReplenishmentRequest : has
-    Part ||--o{ ProductionPart : used_in
-    ProductionOrder ||--o{ ProductionPart : has
-    ProductionOrder ||--|| CarSale : generates
-    CarSale ||--|| SaleDetail : includes
+SaleDetail {
+    Guid Id PK
+    Guid CarSaleId FK
+    string BuyerName
+    decimal Price
+    decimal Discount
+    string PaymentMethod
+    string Notes
+}
+
+%% Relacionamentos
+Part ||--o{ ReplenishmentRequest : "1-N (Part.Code → ReplenishmentRequest.PartCode)"
+Part ||--o{ ProductionPart : "1-N (Part.Code → ProductionPart.PartCode)"
+ProductionOrder ||--o{ ProductionPart : "1-N (ProductionOrder.Id → ProductionPart.ProductionOrderId)"
+ProductionOrder ||--|| CarSale : "1-1 (ProductionOrder.Id → CarSale.ProductionOrderId)"
+CarSale ||--|| SaleDetail : "1-1 (CarSale.Id → SaleDetail.CarSaleId)"
 
