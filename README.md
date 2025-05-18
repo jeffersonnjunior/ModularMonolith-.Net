@@ -94,3 +94,63 @@ Contém as configurações para os pipelines de CI/CD do projeto, automatizando 
 ![image](https://github.com/user-attachments/assets/45ce3784-1238-4ca3-bee5-17827ba0790f)
 
 ## Diagrama do Banco
+```mermaid
+erDiagram
+
+%% Módulo: Inventory
+Part {
+    Guid Id PK
+    string Code UK
+    string Description
+    int QuantityInStock
+    int MinimumRequired
+    DateTime CreatedAt
+}
+
+ReplenishmentRequest {
+    Guid Id PK
+    string PartCode FK
+    int RequestedQuantity
+    ReplenishmentStatus ReplenishmentStatus
+    DateTime RequestedAt
+}
+
+%% Módulo: Production
+ProductionOrder {
+    Guid Id PK
+    string Model
+    ProductionStatus ProductionStatus
+    DateTime CreatedAt
+    DateTime? CompletedAt
+}
+
+ProductionPart {
+    Guid Id PK
+    Guid ProductionOrderId FK
+    string PartCode FK
+    int QuantityUsed
+}
+
+%% Módulo: Sales
+CarSale {
+    Guid Id PK
+    Guid ProductionOrderId FK
+    SaleStatus Status
+    DateTime? SoldAt
+}
+
+SaleDetail {
+    Guid Id PK
+    Guid CarSaleId FK
+    string BuyerName
+    decimal Price
+    decimal Discount
+    string PaymentMethod
+    string Notes
+}
+
+%% Relacionamentos
+Part ||--o{ ReplenishmentRequest : "1-N (Part.Code → ReplenishmentRequest.PartCode)"
+Part ||--o{ ProductionPart : "1-N (Part.Code → ProductionPart.PartCode)"
+ProductionOrder ||--o{ ProductionPart : "1-N (Production
+```
