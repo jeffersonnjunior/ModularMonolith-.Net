@@ -156,3 +156,15 @@ Part ||--o{ ProductionPart : "1-N (Part.Code → ProductionPart.PartCode)"
 ProductionOrder ||--o{ ProductionPart : "1-N (ProductionOrder.Id → ProductionPart.ProductionOrderId)"
 ProductionOrder ||--|| CarSale : "1-1 (ProductionOrder.Id → CarSale.ProductionOrderId)"
 CarSale ||--|| SaleDetail : "1-1 (CarSale.Id → SaleDetail.CarSaleId)"
+
+```
+```mermaid
+graph TD
+    A[Controller] --> B[Decorator]
+    B --> C{Validação}
+    C -- Inválido --> G[Lança exceção]
+    C -- Válido --> D[Verifica cache]
+    D -- Cache encontrado --> H[Retorna dados do cache]
+    D -- Cache não encontrado --> E[Executa Command/Query]
+    E --> F[Repository acessa banco]
+```
