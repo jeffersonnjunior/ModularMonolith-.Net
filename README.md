@@ -158,6 +158,9 @@ ProductionOrder ||--|| CarSale : "1-1 (ProductionOrder.Id → CarSale.Production
 CarSale ||--|| SaleDetail : "1-1 (CarSale.Id → SaleDetail.CarSaleId)"
 
 ```
+
+## Diagrama da Requisição
+
 ```mermaid
 graph TD
     A[Controller] --> B[Decorator]
