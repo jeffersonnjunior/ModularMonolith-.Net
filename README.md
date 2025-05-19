@@ -171,3 +171,10 @@ graph TD
     D -- Cache não encontrado --> E[Executa Command/Query]
     E --> F[Repository acessa banco]
 ```
+
+## Rodar Projeto
+Para subir a aplicação com Docker Compose, execute o comando abaixo na raiz do projeto:
+
+```bash
+docker-compose up
+```
