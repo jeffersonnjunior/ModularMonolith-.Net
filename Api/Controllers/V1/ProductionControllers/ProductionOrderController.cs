@@ -1,24 +1,24 @@
 ﻿using Common.Exceptions;
 using Microsoft.AspNetCore.Mvc;
-using Modules.Production.Dtos.ProductionPartDtos;
+using Modules.Production.Dtos.ProductionOrderDtos;
 using Modules.Production.Interfaces.IDecorators;
 
-namespace Api.Controllers.ProductionControllers;
+namespace Api.Controllers.V1.ProductionControllers;
 
 [ApiController]
 [ApiVersion("1.0")]
 [Route("api/v{version:apiVersion}/[controller]")]
 [Produces("application/json")]
-public class ProductionPartController : ControllerBase
+public class ProductionOrderController : ControllerBase
 {
-    private readonly IProductionPartDecorator _productionPartDecorator;
+    private readonly IProductionOrderDecorator _productionOrderDecorator;
     private readonly NotificationContext _notificationContext;
 
-    public ProductionPartController(
-        IProductionPartDecorator productionPartDecorator,
+    public ProductionOrderController(
+        IProductionOrderDecorator productionOrderDecorator,
         NotificationContext notificationContext)
     {
-        _productionPartDecorator = productionPartDecorator;
+        _productionOrderDecorator = productionOrderDecorator;
         _notificationContext = notificationContext;
     }
 
@@ -26,21 +26,21 @@ public class ProductionPartController : ControllerBase
     [Route("get-by-id")]
     public IActionResult GetById([FromQuery] Guid id)
     {
-        return Ok(_productionPartDecorator.GetById(id));
+        return Ok(_productionOrderDecorator.GetById(id));
     }
 
     [HttpGet]
     [Route("get-filters")]
-    public IActionResult GetFilters([FromQuery] ProductionPartGetFilterDto productionPartGetFilterDto)
+    public IActionResult GetFilters([FromQuery] ProductionOrderGetFilterDto productionOrderGetFilterDto)
     {
-        return Ok(_productionPartDecorator.GetFilter(productionPartGetFilterDto));
+        return Ok(_productionOrderDecorator.GetFilter(productionOrderGetFilterDto));
     }
 
     [HttpPost]
     [Route("add")]
-    public IActionResult Add([FromBody] ProductionPartCreateDto productionPartCreateDto)
+    public IActionResult Add([FromBody] ProductionOrderCreateDto productionOrderCreateDto)
     {
-        var createdOrder = _productionPartDecorator.Create(productionPartCreateDto);
+        var createdOrder = _productionOrderDecorator.Create(productionOrderCreateDto);
 
         if (_notificationContext.HasNotifications())
             return BadRequest(new { errors = _notificationContext.GetNotifications() });
@@ -51,9 +51,9 @@ public class ProductionPartController : ControllerBase
 
     [HttpPut]
     [Route("update")]
-    public IActionResult Update([FromBody] ProductionPartUpdateDto productionPartUpdateDto)
+    public IActionResult Update([FromBody] ProductionOrderUpdateDto productionOrderUpdateDto)
     {
-        _productionPartDecorator.Update(productionPartUpdateDto);
+        _productionOrderDecorator.Update(productionOrderUpdateDto);
         return Ok();
     }
 
@@ -61,7 +61,7 @@ public class ProductionPartController : ControllerBase
     [Route("delete")]
     public IActionResult Delete([FromQuery] Guid id)
     {
-        _productionPartDecorator.Delete(id);
+        _productionOrderDecorator.Delete(id);
         return Ok();
     }
 }

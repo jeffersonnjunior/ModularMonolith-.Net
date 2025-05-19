@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Modules.Inventory.Dtos.PartDtos;
 using Modules.Inventory.Interfaces.IDecorators;
 
-namespace Api.Controllers.InventoryController;
+namespace Api.Controllers.V1.InventoryControllers;
 
 [ApiController]
 [ApiVersion("1.0")]

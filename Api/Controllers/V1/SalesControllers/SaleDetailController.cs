@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Modules.Sales.Dtos.SaleDetailDtos;
 using Modules.Sales.Interfaces.IDecorators;
 
-namespace Api.Controllers.SalesControllers;
+namespace Api.Controllers.V1.SalesControllers;
 
 [ApiController]
 [ApiVersion("1.0")]
